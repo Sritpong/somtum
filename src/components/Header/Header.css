@@ -1,0 +1,45 @@
+.navbar {
+    background-color: #5d2b2e !important;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-desktop-link-hover:hover {
+    background-color: #ee4d2d !important;
+    color: white !important;
+}
+
+.navbar-desktop-link-hover:hover a {
+    color: white !important;
+}
+
+.navbarlink-mobile {
+    color: #000;
+    text-decoration: none;
+}
+
+.navbarlink-mobile:hover {
+    color: white;
+}
+
+.navbarlink-desktop {
+    
+}
+
+.navbarlink-desktop:hover {
+    
+}
