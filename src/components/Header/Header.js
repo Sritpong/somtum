@@ -124,6 +124,7 @@ const Header = () => {
                             ))}
                         </Menu>
                     </Box>
+                    
                     <Typography
                         variant="h5"
                         noWrap
@@ -142,6 +143,7 @@ const Header = () => {
                     >
                         LOGO
                     </Typography>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
                         {pages.map((page, idx) => (
                             <Button
