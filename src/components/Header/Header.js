@@ -124,7 +124,7 @@ const Header = () => {
                             ))}
                         </Menu>
                     </Box>
-                    
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -182,7 +182,7 @@ const Header = () => {
                         onClose={handleCloseUserMenu}
                         >
                         {settings.map((setting, idx) => (
-                            setting.to != undefined ? <Link to={setting.to} className="navbarlink-mobile" >
+                            setting.to !== undefined ? <Link to={setting.to} className="navbarlink-mobile" >
                                 <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
                                     <Typography textAlign="center">
                                         {
