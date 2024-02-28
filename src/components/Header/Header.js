@@ -43,7 +43,7 @@ const settings = [
     }
 ];
 
-const Header = () => {
+const Header = (props) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -160,43 +160,55 @@ const Header = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                        </IconButton>
-                        </Tooltip>
-                        <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                        >
-                        {settings.map((setting, idx) => (
-                            setting.to !== undefined ? <Link to={setting.to} className="navbarlink-mobile" >
-                                <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
-                                    <Typography textAlign="center">
-                                        {
-                                            setting.label
-                                        }
-                                    </Typography>
-                                </MenuItem>
-                            </Link> : <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
-                                <Typography textAlign="center">
-                                    {setting.label}
-                                </Typography>
-                            </MenuItem>
-                        ))}
-                        </Menu>
+                        {
+                            props.isLogged ? <>
+                                <Tooltip title="Open settings">
+                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                </IconButton>
+                                </Tooltip>
+                                <Menu
+                                sx={{ mt: '45px' }}
+                                id="menu-appbar"
+                                anchorEl={anchorElUser}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElUser)}
+                                onClose={handleCloseUserMenu}
+                                >
+                                {settings.map((setting, idx) => (
+                                    setting.to !== undefined ? <Link to={setting.to} className="navbarlink-mobile" >
+                                        <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
+                                            <Typography textAlign="center">
+                                                {
+                                                    setting.label
+                                                }
+                                            </Typography>
+                                        </MenuItem>
+                                    </Link> : <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
+                                        <Typography textAlign="center">
+                                            {setting.label}
+                                        </Typography>
+                                    </MenuItem>
+                                ))}
+                                </Menu>
+                            </> : <>
+                                <Button variant="contained" className="btn-signup" sx={
+                                    {
+                                        mt: 1
+                                    }
+                                }>
+                                    สมัครสมาชิก / เข้าสู่ระบบ
+                                </Button>
+                            </>
+                        }
                     </Box>
                 </Toolbar>
             </Container>

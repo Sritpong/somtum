@@ -42,6 +42,15 @@ const NewsAndPromotion = () => {
                                             Lorem ipsum
                                         </p>
                                         Lorem ipsum dolor sit amet consectetur. Eleifend et facilisis volutpat facilisi. Aliquam et ridiculus vulputate aliquam mauris. Posuere tempor sit duis mattis augue at aliquet faucibus. A facilisis augue dui.
+                                        <Box mt={3}>
+                                            <Button variant="contained" className="btn-readmore" sx={
+                                                {
+                                                    px: 5
+                                                }
+                                            }>
+                                                READ MORE
+                                            </Button>
+                                        </Box>
                                     </Grid>
                                 </Grid>
                             </Box>
@@ -70,6 +79,15 @@ const NewsAndPromotion = () => {
                                                                 Lorem ipsum
                                                             </p>
                                                             Lorem ipsum dolor sit amet consectetur. Eleifend et facilisis volutpat facilisi. Aliquam et ridiculus vulputate aliquam mauris. Posuere tempor sit duis mattis augue at aliquet faucibus. A facilisis augue dui.
+                                                            <Box mt={3}>
+                                                                <Button variant="contained" className="btn-readmore" sx={
+                                                                    {
+                                                                        px: 5
+                                                                    }
+                                                                }>
+                                                                    READ MORE
+                                                                </Button>
+                                                            </Box>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
@@ -96,6 +114,15 @@ const NewsAndPromotion = () => {
                                                                 Lorem ipsum
                                                             </p>
                                                             Lorem ipsum dolor sit amet consectetur. Eleifend et facilisis volutpat facilisi. Aliquam et ridiculus vulputate aliquam mauris. Posuere tempor sit duis mattis augue at aliquet faucibus. A facilisis augue dui.
+                                                            <Box mt={3}>
+                                                                <Button variant="contained" className="btn-readmore" sx={
+                                                                    {
+                                                                        px: 5
+                                                                    }
+                                                                }>
+                                                                    READ MORE
+                                                                </Button>
+                                                            </Box>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
@@ -122,6 +149,15 @@ const NewsAndPromotion = () => {
                                                                 Lorem ipsum
                                                             </p>
                                                             Lorem ipsum dolor sit amet consectetur. Eleifend et facilisis volutpat facilisi. Aliquam et ridiculus vulputate aliquam mauris. Posuere tempor sit duis mattis augue at aliquet faucibus. A facilisis augue dui.
+                                                            <Box mt={3}>
+                                                                <Button variant="contained" className="btn-readmore" sx={
+                                                                    {
+                                                                        px: 5
+                                                                    }
+                                                                }>
+                                                                    READ MORE
+                                                                </Button>
+                                                            </Box>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
@@ -148,6 +184,15 @@ const NewsAndPromotion = () => {
                                                                 Lorem ipsum
                                                             </p>
                                                             Lorem ipsum dolor sit amet consectetur. Eleifend et facilisis volutpat facilisi. Aliquam et ridiculus vulputate aliquam mauris. Posuere tempor sit duis mattis augue at aliquet faucibus. A facilisis augue dui.
+                                                            <Box mt={3}>
+                                                                <Button variant="contained" className="btn-readmore" sx={
+                                                                    {
+                                                                        px: 5
+                                                                    }
+                                                                }>
+                                                                    READ MORE
+                                                                </Button>
+                                                            </Box>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>

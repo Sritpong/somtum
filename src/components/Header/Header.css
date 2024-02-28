@@ -36,10 +36,16 @@
     color: white;
 }
 
-.navbarlink-desktop {
+/* .navbarlink-desktop {
     
 }
 
 .navbarlink-desktop:hover {
     
+} */
+
+.btn-signup {
+    border-radius: 20px !important;
+    color: white !important;
+    background-color: #ee4d2d !important;
 }

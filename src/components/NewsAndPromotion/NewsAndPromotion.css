@@ -1,71 +1,78 @@
 .newsandpromotion {
     width: 100%;
-    top: 1220px;
+    /* top: 1220px; */
     left: auto;
     right: 0;
-    position: absolute;
+    position: static;
     background-color: #fff8ee;
 }
 
-@media screen and (min-width: 1920px) {
+.btn-readmore {
+    margin-top: 10px;
+    border-radius: 20px !important;
+    color: white !important;
+    background-color: #ee4d2d !important;
+}
+
+/* @media screen and (min-width: 1920px) {
     .newsandpromotion {
-        top: 1340px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1340px; 
     }
 }
 
 @media screen and (min-width: 1921px) {
     .newsandpromotion {
-        top: 1370px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1320px; 
     }
 }
 
 @media screen and (max-width: 900px) {
     .newsandpromotion {
-        top: 1500px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1500px; 
     }
 }
 
 @media screen and (max-width: 853px) {
     .newsandpromotion {
-        top: 1460px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1460px; 
     }
 }
 
 @media screen and (max-width: 768px) {
     .newsandpromotion {
-        top: 1444px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1444px; 
     }
 }
 
 @media screen and (max-width: 540px) {
     .newsandpromotion {
-        top: 1400px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1400px; 
     }
 }
 
 @media screen and (max-width: 430px) {
     .newsandpromotion {
-        top: 1357px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1357px; 
     }
 }
 
 @media screen and (max-width: 375px) {
     .newsandpromotion {
-        top: 1357px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1357px; 
     }
 }
 
 @media screen and (max-width: 360px) {
     .newsandpromotion {
-        top: 1350px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1350px; 
     }
 }
 
 @media screen and (max-width: 280px) {
     .newsandpromotion {
-        top: 1340px; /* ปรับตำแหน่งเมื่อหน้าจอมีขนาดเล็กลง */
+        top: 1340px; 
     }
-}
+} */
 
 .newsandpromotion-content {
     padding: 10px;

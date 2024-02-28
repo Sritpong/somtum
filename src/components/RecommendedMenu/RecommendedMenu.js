@@ -22,9 +22,16 @@ const RecommendedMenu = () => {
                             <h1>
                                 เมนูแนะนำ
                             </h1>
-                            <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' className="recommended-show-img" />
+                            <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' className="recommended-show-img"/>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={8}>
+                        <Grid item xs={12} sm={12} md={8} sx={{ display: 'flex', justifyContent: 'flex-end' }} style={
+                            {
+                                backgroundImage: `linear-gradient(to right, rgba(254, 217, 168, 1), rgba(254, 217, 168, 0), rgba(254, 217, 168, 1)), linear-gradient(to bottom, rgba(254, 217, 168, 1), rgba(254, 217, 168, 0), rgba(254, 217, 168, 1)), url("${process.env.REACT_APP_BASE_URL}/assets/images/background-thai.png")`,
+                                backgroundSize: 'contain',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'right'
+                            }
+                        }>
                             <div className="recommended-item-two">
                                 <h1 className="recommended-menu-name">
                                     ตำปูปลาร้า
@@ -32,49 +39,25 @@ const RecommendedMenu = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur. Maecenas elit adipiscing morbi sapien.
                                 </p>
-                                <Button variant="contained" className="btn-recommend-order">
+                                <Button variant="contained" className="btn-recommend-order" startIcon={<img src={`${process.env.REACT_APP_BASE_URL}/assets/images/btn/thai-icon.png`} alt="icon" width={25} style={
+                                    {
+                                        filter: 'brightness(0) invert(1)'
+                                    }
+                                } />}>
                                     Open Order
                                 </Button>
                                 <Grid container spacing={0} mt={3}>
                                     <Grid item xs={3} sm={3} md={3}>
-                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' style={
-                                            {
-                                                height: '90%',
-                                                maxWidth: '100%',
-                                                padding: 0,
-                                                margin: 0
-                                            }
-                                        } />
+                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' className="img-other" />
                                     </Grid>
                                     <Grid item xs={3} sm={3} md={3}>
-                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' style={
-                                            {
-                                                height: '90%',
-                                                maxWidth: '100%',
-                                                padding: 0,
-                                                margin: 0
-                                            }
-                                        } />
+                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' className="img-other" />
                                     </Grid>
                                     <Grid item xs={3} sm={3} md={3}>
-                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' style={
-                                            {
-                                                height: '90%',
-                                                maxWidth: '100%',
-                                                padding: 0,
-                                                margin: 0
-                                            }
-                                        } />
+                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' className="img-other" />
                                     </Grid>
                                     <Grid item xs={3} sm={3} md={3}>
-                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' style={
-                                            {
-                                                height: '90%',
-                                                maxWidth: '100%',
-                                                padding: 0,
-                                                margin: 0
-                                            }
-                                        } />
+                                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png' className="img-other" />
                                     </Grid>
                                 </Grid>
                             </div>
