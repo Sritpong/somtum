@@ -115,13 +115,13 @@ const Header = (props) => {
                         >
                             {/* MOBILE */}
                             {pages.map((page, idx) => (
-                                <MenuItem key={idx} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">
-                                        <Link to={page.to} className="navbarlink-mobile">
-                                            {page.label}
-                                        </Link>
-                                    </Typography>
-                                </MenuItem>
+                                <Link to={page.to} className="navbarlink-mobile">
+                                    <MenuItem key={idx} onClick={handleCloseNavMenu}>
+                                        <Typography textAlign="center">
+                                                {page.label}
+                                        </Typography>
+                                    </MenuItem>
+                                </Link>
                             ))}
                         </Menu>
                     </Box>
@@ -147,16 +147,16 @@ const Header = (props) => {
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
                         {pages.map((page, idx) => (
-                            <Button
-                                key={idx}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                className="navbar-desktop-link-hover"
-                            >
-                                <Link to={page.to}>
-                                    {page.label}
-                                </Link>
-                            </Button>
+                            <Link to={page.to}>
+                                <Button
+                                    key={idx}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                    className="navbar-desktop-link-hover"
+                                >
+                                        {page.label}
+                                </Button>
+                            </Link>
                         ))}
                     </Box>
 
