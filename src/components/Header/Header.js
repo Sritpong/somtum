@@ -25,11 +25,11 @@ const pages = [
     },
     {
         label: 'ข่าวสาร',
-        to: '/'
+        to: '/news'
     },
     {
         label: 'เมนู',
-        to: '/'
+        to: '/menus'
     },
     {
         label: 'ติดต่อเรา',
@@ -78,6 +78,7 @@ const Header = (props) => {
                             letterSpacing: '.2rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            textAlign: 'center'
                         }}
                     >
                         SOMTUM
@@ -205,7 +206,7 @@ const Header = (props) => {
                                         mt: 1
                                     }
                                 }>
-                                    สมัครสมาชิก / เข้าสู่ระบบ
+                                    สมัครสมาชิก
                                 </Button>
                             </>
                         }

@@ -1,0 +1,20 @@
+.menus-list {
+    padding: 60px;
+    position: static;
+    left: 0;
+    color: black;
+    background-color: #fed9a8;
+}
+
+.menus-list h1 {
+    text-align: center;
+    color: #ee4d2d;
+    font-weight: 600 !important;
+}
+
+.menus-list h2 {
+    text-align: center;
+    color: #ee4d2d;
+    font-weight: 600 !important;
+    margin-top: 0;
+}

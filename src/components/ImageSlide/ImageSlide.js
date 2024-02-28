@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import './navigation.css';
 import './pagination.css';
-
 import './ImageSlide.css';
 
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -14,7 +13,13 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard, Scrollbar, A11y } from 'swiper/modules';
 
-const ImageSlide = () => {
+const ImageSlide = (props) => {
+    const [recommendedMenus, setRecommendedMenus] = useState([]);
+
+    useEffect(() => {
+        setRecommendedMenus(props.recommendedMenus);
+    }, [props.recommendedMenus]);
+
     return (
         <div className="slide">
             <div className="slide-app">
@@ -31,74 +36,28 @@ const ImageSlide = () => {
                         }
                     }
                 >
-                    <SwiperSlide>
-                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png'/>
-                        <ImageListItemBar
-                            title={`ตำปูไทย`}
-                            subtitle={`Lorem ipsum dolor sit amet consectetur. Maecenas elit adipiscing morbi sapien.`}
-                            sx={
-                                {
-                                    '.MuiImageListItemBar-title': {
-                                        fontSize: 20
-                                    },
-                                    '.MuiImageListItemBar-subtitle': {
-                                        fontSize: 16
-                                    }
-                                }
-                            }
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png'/>
-                        <ImageListItemBar
-                            title={`ตำปูไทย`}
-                            subtitle={`Lorem ipsum dolor sit amet consectetur. Maecenas elit adipiscing morbi sapien.`}
-                            sx={
-                                {
-                                    '.MuiImageListItemBar-title': {
-                                        fontSize: 20
-                                    },
-                                    '.MuiImageListItemBar-subtitle': {
-                                        fontSize: 16
-                                    }
-                                }
-                            }
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png'/>
-                        <ImageListItemBar
-                            title={`ตำปูไทย`}
-                            subtitle={`Lorem ipsum dolor sit amet consectetur. Maecenas elit adipiscing morbi sapien.`}
-                            sx={
-                                {
-                                    '.MuiImageListItemBar-title': {
-                                        fontSize: 20
-                                    },
-                                    '.MuiImageListItemBar-subtitle': {
-                                        fontSize: 16
-                                    }
-                                }
-                            }
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/images/recommended/1.png`} alt='1.png'/>
-                        <ImageListItemBar
-                            title={`ตำปูไทย`}
-                            subtitle={`Lorem ipsum dolor sit amet consectetur. Maecenas elit adipiscing morbi sapien.`}
-                            sx={
-                                {
-                                    '.MuiImageListItemBar-title': {
-                                        fontSize: 20
-                                    },
-                                    '.MuiImageListItemBar-subtitle': {
-                                        fontSize: 16
-                                    }
-                                }
-                            }
-                        />
-                    </SwiperSlide>
+                    {
+                        recommendedMenus.map((menu, index) => {
+                            return (
+                                <SwiperSlide key={index}>
+                                    <img src={menu.imageUrl} alt={menu.imageUrl} />
+                                    <ImageListItemBar
+                                        title={`${menu.title}`}
+                                        sx={
+                                            {
+                                                '.MuiImageListItemBar-title': {
+                                                    fontSize: 20
+                                                },
+                                                '.MuiImageListItemBar-subtitle': {
+                                                    fontSize: 16
+                                                }
+                                            }
+                                        }
+                                    />
+                                </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper>
             </div>
         </div>

@@ -2,11 +2,11 @@ import Banner from "../components/Banner/Banner";
 import RecommendedMenu from "../components/RecommendedMenu/RecommendedMenu";
 import NewsAndPromotion from "../components/NewsAndPromotion/NewsAndPromotion";
 
-const Home = () => {
+const Home = (props) => {
     return (
         <>
-            <Banner />
-            <RecommendedMenu />
+            <Banner {...props} />
+            <RecommendedMenu {...props} />
             <NewsAndPromotion />
         </>
     )

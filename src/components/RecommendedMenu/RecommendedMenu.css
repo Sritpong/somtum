@@ -27,7 +27,7 @@
 }
 
 .recommended-show-img {
-    height: 50%;
+    /* height: 200px; */
     border-radius: 20px;
     box-shadow: 5px 10px white;
 }
@@ -38,21 +38,18 @@
     padding: 0;
     margin: 0;
     border-radius: 10px;
+    transition-duration: 300ms;
+}
+
+.img-other:hover {
+    cursor: pointer;
+    box-shadow: 5px 10px rgba(255, 255, 255, .8);
 }
 
 .btn-recommend-order {
     border-radius: 20px !important;
     color: white !important;
     background-color: #ee4d2d !important;
-}
-
-@media only screen and (max-width: 450px)
-{
-    .recommended-show-img {
-        height: 50%;
-        border-radius: 20px;
-        box-shadow: 5px 10px white;
-    }
 }
 
 @media only screen and (min-width: 900px)

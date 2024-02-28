@@ -1,0 +1,13 @@
+.menus-header {
+    padding: 60px;
+    position: static;
+    left: 0;
+    color: black;
+    background-color: #fff9f0;
+}
+
+.menus-header h1 {
+    text-align: center;
+    color: #ee4d2d;
+    font-weight: 600 !important;
+}
