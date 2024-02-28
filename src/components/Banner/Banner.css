@@ -4,7 +4,7 @@
     top: 50px;
     left: auto;
     right: 0;
-    position: fixed;
+    position: absolute;
     background-color: #ffa800;
 }
 
@@ -27,16 +27,4 @@
     margin-right: 0px;
     margin: 0 !important;
     text-align: right;
-}
-
-@keyframes background-image-fade {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }

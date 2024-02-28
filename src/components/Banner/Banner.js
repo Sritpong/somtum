@@ -32,7 +32,7 @@ const Banner = () => {
                         }>
                             <Box sx={{
                                 display: 'flex',
-                                justifyContent: 'space-between',
+                                justifyContent: 'flex-end',
                                 p: 1,
                                 m: 1,
                                 height: '97%'
