@@ -36,7 +36,8 @@ const ContactMap = () => {
                                     style={
                                         {
                                             borderRadius: '20px',
-                                            border: 'solid 0px rgb(0,0,0,0)'
+                                            border: 'solid 0px rgb(0,0,0,0)',
+                                            boxShadow: '0 1rem 2rem rgba(0, 0, 0, .175)'
                                         }
                                     }
                                 ></iframe>
