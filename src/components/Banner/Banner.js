@@ -31,8 +31,7 @@ const Banner = (props) => {
                     <Box sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        p: 1,
-                        m: 1,
+                        px: 1,
                         height: '100%'
                     }}>
                         <Grid container spacing={2}>

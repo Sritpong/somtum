@@ -12,7 +12,7 @@
     padding: 10px;
     padding-right: 0px;
     padding-top: 25px;
-    /* padding-bottom: 0; */
+    padding-bottom: 0;
     color: white;
     height: 100%;
 }
@@ -35,8 +35,26 @@
     max-width: 100%;
     padding: 0;
     margin: 0;
+    margin-right: 3rem;
     border-radius: 10px;
+    transition: .15s;
 }
+
+@media screen and (max-width: 900px)
+{
+    .image-kunwow {
+        margin-right: 0rem;
+    }
+}
+
+@media screen and (min-width: 1200px)
+{
+    .image-kunwow:hover {
+        margin-right: 5rem;
+    }
+}
+
+
 
 /* .image-background {
     background-image: linear-gradient(to bottom, rgba(255, 168, 0, 0) , rgba(255, 168, 0, 1)) url();

@@ -76,7 +76,7 @@ const RecommendedMenu = (props) => {
                                     {
                                         recommendedMenus.slice(0,4).map((menu, index) => {
                                             return (
-                                                <Grid item xs={3} sm={3} md={3} key={index}>
+                                                <Grid item xs={3} sm={3} md={3} px={1} key={index}>
                                                     <img src={menu.imageUrl} alt={menu.imageUrl} className="img-other" onClick={() => {
                                                         setSelectedMenuIdx(index);
                                                     }} />
