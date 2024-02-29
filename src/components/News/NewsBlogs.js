@@ -7,7 +7,7 @@ import './NewsBlogs.css';
 
 const NewsBlogs = () => {
     return (
-        <Grid container spacing={2} mb={5} px={3}>
+        <Grid container spacing={2} px={3} className="news-page-background">
             <Grid item xs={12} sm={12} md={12}>
                 <Box sx={{
                     display: 'flex',

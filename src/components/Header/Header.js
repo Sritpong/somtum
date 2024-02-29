@@ -33,7 +33,7 @@ const pages = [
     },
     {
         label: 'ติดต่อเรา',
-        to: '/'
+        to: '/contact'
     }
 ];
 const settings = [

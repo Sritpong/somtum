@@ -1,0 +1,41 @@
+.contact-map {
+    padding: 60px;
+    position: static;
+    left: 0;
+    color: black;
+    background-color: white;
+}
+
+.map-title {
+    font-weight: 600 !important;
+}
+
+.f-black {
+    color: black;
+}
+
+.f-or {
+    color: #ee4d2d;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.map-container {
+    max-width: 60%;
+}
+
+@media screen and (max-width: 900px)
+{
+    .map-container {
+        max-width: 100%;
+    }
+}
+
+.btn-go-to-map {
+    border-radius: 20px !important;
+    color: white !important;
+    background-color: #ee4d2d !important;
+}

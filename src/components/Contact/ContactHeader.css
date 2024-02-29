@@ -1,0 +1,45 @@
+.contact-header {
+    padding: 60px;
+    position: static;
+    left: 0;
+    color: black;
+    background-color: #fff9f0;
+}
+
+.contact-header h1 {
+    text-align: center;
+    color: #ee4d2d;
+    font-weight: 600 !important;
+}
+
+.contact-list a {
+    text-decoration: none;
+    color: #ee4d2d;
+    font-size: 18px;
+    transition: 200ms;
+    margin: 0;
+    padding: 0;
+    font-weight: 500 !important;
+    text-align: center;
+}
+
+.contact-list a p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.contact-list a:hover {
+    text-decoration: none;
+    color: #5d2b2e;
+}
+
+.grid-contact-container {
+    max-width: 50%;
+}
+
+@media screen and (max-width: 900px)
+{
+    .grid-contact-container {
+        max-width: 100%;
+    }
+}

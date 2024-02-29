@@ -7,6 +7,7 @@ import { axiosService } from "./services/axios";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import Menus from "./pages/Menus";
+import Contact from "./pages/Contact";
 
 // IMPORT COMPONENTS
 import Header from "./components/Header/Header";
@@ -75,6 +76,9 @@ const App = () => {
                     } />
                     <Route path="/menus" exact element={
                         <Menus allMenus={allMenus} allCategories={allCategories} />
+                    } />
+                    <Route path="/contact" exact element={
+                        <Contact />
                     } />
                 </Routes>
             </div>
