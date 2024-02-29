@@ -140,7 +140,6 @@ const ContactFeedback = () => {
                                     <TextField
                                         multiline
                                         rows={5}
-                                        maxRows={5}
                                         sx={{
                                             backgroundColor: 'white',
                                             color: 'black',
