@@ -19,42 +19,48 @@ const ContactHeader = () => {
 
     const contactList = [
         {
-            label: "ตำลอกอเกษตรนวมิตรทร์โดยวาว",
-            link: "https://www.facebook.com/",
-            icon: <FacebookIcon fontSize='medium' />
+            label: "ตำลอกอเกษตรนวมินทร์ โดยวาว",
+            link: "https://www.facebook.com/somtumwow",
+            icon: <FacebookIcon fontSize='medium' />,
+            target: "_blank"
         },
         {
             label: "somtumwow",
-            link: "https://www.instagram.com/",
-            icon: <InstagramIcon fontSize='medium' />
+            link: "https://www.instagram.com/somtumwow/",
+            icon: <InstagramIcon fontSize='medium' />,
+            target: "_blank"
         },
         {
             label: "somtumwow@gmail.com",
             link: "mailto:somtumwow@gmail.com",
-            icon: <EmailIcon fontSize='medium' />
+            icon: <EmailIcon fontSize='medium' />,
+            target: "_blank"
         },
         {
             label: "@wowkitchen (มี @ ด้วยนะคะ)",
-            link: "https://www.google.com/",
+            link: "https://line.me/ti/p/~@wowkitchen",
             icon: <FaLine style={
                 {
                     fontSize: '1.5rem'
                 }
-            } />
+            } />,
+            target: "_blank"
         },
         {
-            label: "soomtumwow",
-            link: "https://www.tiktok.com/",
+            label: "somtumwow",
+            link: "https://www.tiktok.com/@somtumwow",
             icon: <FaTiktok style={
                 {
                     fontSize: '1.5rem'
                 }
-            } />
+            } />,
+            target: "_blank"
         },
         {
             label: "Online Delivery",
             link: "#",
-            icon: <DeliveryDiningIcon fontSize='medium' />
+            icon: <DeliveryDiningIcon fontSize='medium' />,
+            target: "_self"
         },
     ]
 
@@ -81,7 +87,7 @@ const ContactHeader = () => {
                                 }
                             } key={index} className="contact-list">
                                 {
-                                    <Link to={`${list.link}`} target="_blank">
+                                    <Link to={`${list.link}`} target={`${list.target}`}>
                                         {list.icon}
                                         <p>
                                             {list.label}
