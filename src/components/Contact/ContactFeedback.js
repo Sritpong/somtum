@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // MUI
 import Box from '@mui/material/Box';
@@ -28,7 +28,7 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 const ContactFeedback = () => {
-    const [image, setImage] = useState({});
+    const [image, setImage] = useState(undefined);
 
     return (
         <>
@@ -167,7 +167,7 @@ const ContactFeedback = () => {
                                         className="btn-uploadfiles"
                                     >
                                         {
-                                            image.name === undefined ? "เลือกไฟล์" : image.name
+                                            image !== undefined ? image.name : "เลือกไฟล์"
                                         }
                                         <VisuallyHiddenInput type="file" onChange={(e) => {
                                             setImage(e.target.files?.[0])
