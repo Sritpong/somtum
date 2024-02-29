@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // MUI
 import Box from '@mui/material/Box';
@@ -11,6 +11,7 @@ import { styled } from '@mui/material/styles';
 // MUI ICONS
 import NoteAltRoundedIcon from '@mui/icons-material/NoteAltRounded';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 // CSS
 import './ContactFeedback.css';
@@ -24,7 +25,7 @@ const VisuallyHiddenInput = styled('input')({
     bottom: 0,
     left: 0,
     whiteSpace: 'nowrap',
-    width: 1,
+    width: 1
 });
 
 const ContactFeedback = () => {
@@ -164,14 +165,44 @@ const ContactFeedback = () => {
                                         tabIndex={-1}
                                         startIcon={<CloudUploadIcon />}
                                         className="btn-uploadfiles"
+                                        sx={
+                                            {
+                                                marginTop: 1
+                                            }
+                                        }
                                     >
                                         {
                                             image !== undefined ? image.name : "เลือกไฟล์"
                                         }
-                                        <VisuallyHiddenInput type="file" onChange={(e) => {
-                                            setImage(e.target.files?.[0])
+                                        <VisuallyHiddenInput id="select_file" type="file" onChange={(e) => {
+                                            if(e.target.files?.[0] === undefined)
+                                            {
+                                                return;
+                                            }
+
+                                            setImage(e.target.files?.[0]);
                                         }} />
                                     </Button>
+                                    {
+                                        image !== undefined && <Button
+                                            variant="contained"
+                                            tabIndex={-1}
+                                            startIcon={<CancelIcon />}
+                                            className="btn-cancel"
+                                            sx={
+                                                {
+                                                    marginLeft: 1,
+                                                    marginTop: 1
+                                                }
+                                            }
+                                            onClick={() => {
+                                                document.getElementById("select_file").value = '';
+                                                setImage(undefined);
+                                            }}
+                                        >
+                                            ลบรูปภาพ
+                                        </Button>
+                                    }
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} px={1} mt={3}>
                                     <Button
