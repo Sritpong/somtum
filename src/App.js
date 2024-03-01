@@ -25,7 +25,6 @@ const App = () => {
     
     // CHECK TOKEN
     useEffect(() => {
-        console.log(window.location.pathname)
         const token = cookies.get('token');
         
         if(token === undefined)
