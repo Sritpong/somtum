@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -36,6 +36,7 @@ const pages = [
         to: '/contact'
     }
 ];
+
 const settings = [
     {
         label: 'setting 1',
@@ -44,6 +45,8 @@ const settings = [
 ];
 
 const Header = (props) => {
+    const location = useLocation();
+    const [show, setShow] = useState(true);
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -62,157 +65,173 @@ const Header = (props) => {
         setAnchorElUser(null);
     };
 
+    useEffect(() => {
+        if(location.pathname == '/register')
+        {
+            setShow(false);
+            return;
+        }
+
+        setShow(true);
+    }, [location])
+
     return (
-        <AppBar className="navbar">
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.2rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                            textAlign: 'center'
-                        }}
-                    >
-                        SOMTUM
-                    </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {/* MOBILE */}
-                            {pages.map((page, idx) => (
-                                <Link to={page.to} className="navbarlink-mobile">
-                                    <MenuItem key={idx} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">
-                                                {page.label}
-                                        </Typography>
-                                    </MenuItem>
-                                </Link>
-                            ))}
-                        </Menu>
-                    </Box>
-
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        sx={{
-                        mr: 2,
-                        display: { xs: 'flex', md: 'none' },
-                        flexGrow: 1,
-                        fontFamily: 'monospace',
-                        fontWeight: 700,
-                        letterSpacing: '.3rem',
-                        color: 'inherit',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        {pages.map((page, idx) => (
-                            <Link to={page.to}>
-                                <Button
-                                    key={idx}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                    className="navbar-desktop-link-hover"
+        <>
+            {
+                show && <AppBar className="navbar">
+                    <Container maxWidth="xl">
+                        <Toolbar disableGutters>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.2rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                    textAlign: 'center'
+                                }}
+                            >
+                                SOMTUM
+                            </Typography>
+        
+                            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={handleOpenNavMenu}
+                                    color="inherit"
                                 >
-                                        {page.label}
-                                </Button>
-                            </Link>
-                        ))}
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        {
-                            props.isLogged ? <>
-                                <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <MenuIcon />
                                 </IconButton>
-                                </Tooltip>
                                 <Menu
-                                sx={{ mt: '45px' }}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
+                                    id="menu-appbar"
+                                    anchorEl={anchorElNav}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'left',
+                                    }}
+                                    open={Boolean(anchorElNav)}
+                                    onClose={handleCloseNavMenu}
+                                    sx={{
+                                        display: { xs: 'block', md: 'none' },
+                                    }}
                                 >
-                                {settings.map((setting, idx) => (
-                                    setting.to !== undefined ? <Link to={setting.to} className="navbarlink-mobile" >
-                                        <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
-                                            <Typography textAlign="center">
-                                                {
-                                                    setting.label
-                                                }
-                                            </Typography>
-                                        </MenuItem>
-                                    </Link> : <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
-                                        <Typography textAlign="center">
-                                            {setting.label}
-                                        </Typography>
-                                    </MenuItem>
-                                ))}
+                                    {/* MOBILE */}
+                                    {pages.map((page, idx) => (
+                                        <Link to={page.to} className="navbarlink-mobile">
+                                            <MenuItem key={idx} onClick={handleCloseNavMenu}>
+                                                <Typography textAlign="center">
+                                                        {page.label}
+                                                </Typography>
+                                            </MenuItem>
+                                        </Link>
+                                    ))}
                                 </Menu>
-                            </> : <>
-                                <Button variant="contained" className="btn-signup" sx={
-                                    {
-                                        mt: 1
-                                    }
-                                }>
-                                    สมัครสมาชิก
-                                </Button>
-                            </>
-                        }
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
+                            </Box>
+        
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                sx={{
+                                mr: 2,
+                                display: { xs: 'flex', md: 'none' },
+                                flexGrow: 1,
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'inherit',
+                                textDecoration: 'none',
+                                }}
+                            >
+                                LOGO
+                            </Typography>
+        
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+                                {pages.map((page, idx) => (
+                                    <Link to={page.to}>
+                                        <Button
+                                            key={idx}
+                                            onClick={handleCloseNavMenu}
+                                            sx={{ my: 2, color: 'white', display: 'block' }}
+                                            className="navbar-desktop-link-hover"
+                                        >
+                                                {page.label}
+                                        </Button>
+                                    </Link>
+                                ))}
+                            </Box>
+        
+                            <Box sx={{ flexGrow: 0 }}>
+                                {
+                                    props.isLogged ? <>
+                                        <Tooltip title="Open settings">
+                                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                        </IconButton>
+                                        </Tooltip>
+                                        <Menu
+                                        sx={{ mt: '45px' }}
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                        >
+                                        {settings.map((setting, idx) => (
+                                            setting.to !== undefined ? <Link to={setting.to} className="navbarlink-mobile" >
+                                                <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
+                                                    <Typography textAlign="center">
+                                                        {
+                                                            setting.label
+                                                        }
+                                                    </Typography>
+                                                </MenuItem>
+                                            </Link> : <MenuItem key={idx} onClick={handleCloseUserMenu} className="navbar-desktop-link-hover">
+                                                <Typography textAlign="center">
+                                                    {setting.label}
+                                                </Typography>
+                                            </MenuItem>
+                                        ))}
+                                        </Menu>
+                                    </> : <>
+                                        <Button variant="contained" className="btn-signup" sx={
+                                            {
+                                                mt: 1
+                                            }
+                                        }>
+                                            <Link to={`/register`}>
+                                                สมัครสมาชิก
+                                            </Link>
+                                        </Button>
+                                    </>
+                                }
+                            </Box>
+                        </Toolbar>
+                    </Container>
+                </AppBar>
+            }
+        </>
     )
 }
 

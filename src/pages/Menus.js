@@ -8,10 +8,14 @@ const Menus = (props) => {
     const [selectedCategory, setSelectedCategory] = useState(0);
 
     return (
-        <>
+        <div style={
+            {
+                marginTop: 50
+            }
+        }>
             <MenusHeader {...props} setSelectedCategory={setSelectedCategory} />
             <MenusList {...props} selectedCategory={selectedCategory} />
-        </>
+        </div>
     )
 }
 

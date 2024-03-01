@@ -26,7 +26,11 @@ const Banner = (props) => {
     }, [props.allMenus]);
 
     return (
-            <div className="banner">
+            <div className="banner" style={
+                {
+                    marginTop: 50
+                }
+            }>
                 <div className="banner-content">
                     <Box sx={{
                         display: 'flex',
@@ -35,10 +39,10 @@ const Banner = (props) => {
                         height: '100%'
                     }}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} sm={12} md={4}>
+                            <Grid item xs={12} sm={12} md={5} mt={3}>
                                 <ImageSlide recommendedMenus={recommendedMenus} />
                             </Grid>
-                            <Grid item xs={12} sm={12} md={8}>
+                            <Grid item xs={12} sm={12} md={7}>
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }} style={
                                     {
                                         backgroundImage: `linear-gradient(to right, rgba(255, 168, 0, 1), rgba(255, 168, 0, 0), rgba(255, 168, 0, 1)), linear-gradient(to bottom, rgba(255, 168, 0, 1), rgba(255, 168, 0, 0), rgba(255, 168, 0, 1)), url("${process.env.REACT_APP_BASE_URL}/assets/images/background-thai.png")`,

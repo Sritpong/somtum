@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import News from "./pages/News";
 import Menus from "./pages/Menus";
 import Contact from "./pages/Contact";
+import Register from "./pages/Register";
 
 // IMPORT COMPONENTS
 import Header from "./components/Header/Header";
@@ -24,6 +25,7 @@ const App = () => {
     
     // CHECK TOKEN
     useEffect(() => {
+        console.log(window.location.pathname)
         const token = cookies.get('token');
         
         if(token === undefined)
@@ -66,22 +68,25 @@ const App = () => {
     return (
         <Router>
             <Header isLogged={isLogged} />
-            <div className="app">
-                <Routes>
-                    <Route path="/" exact element={
-                        <Home allMenus={allMenus} />
-                    } />
-                    <Route path="/news" exact element={
-                        <News />
-                    } />
-                    <Route path="/menus" exact element={
-                        <Menus allMenus={allMenus} allCategories={allCategories} />
-                    } />
-                    <Route path="/contact" exact element={
-                        <Contact />
-                    } />
-                </Routes>
-            </div>
+                <div className="app">
+                    <Routes>
+                        <Route path="/" exact element={
+                            <Home allMenus={allMenus} />
+                        } />
+                        <Route path="/news" exact element={
+                            <News />
+                        } />
+                        <Route path="/menus" exact element={
+                            <Menus allMenus={allMenus} allCategories={allCategories} />
+                        } />
+                        <Route path="/contact" exact element={
+                            <Contact />
+                        } />
+                        <Route path="/register" exact element={
+                            <Register />
+                        } />
+                    </Routes>
+                </div>
             <Footer />
         </Router>
     );

@@ -10,7 +10,11 @@ const News = () => {
     const [selectedMenu, setSelectedMenu] = useState("all");
 
     return (
-        <>
+        <div style={
+            {
+                marginTop: 50
+            }
+        }>
             <NewsHeader selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} />
             {
                 selectedMenu === 'all' && <>
@@ -28,7 +32,7 @@ const News = () => {
             {
                 selectedMenu === 'promotions' && <NewsPromotions />
             }
-        </>
+        </div>
     )
 }
 
