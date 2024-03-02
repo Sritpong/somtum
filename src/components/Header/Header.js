@@ -66,13 +66,24 @@ const Header = (props) => {
     };
 
     useEffect(() => {
-        if(location.pathname == '/register')
-        {
-            setShow(false);
-            return;
-        }
+        const checkPathNotShow = async () => {
+            const notShowInPath = [
+                '/register',
+                '/settingpassword'
+            ];
+            let settoshow = true;
 
-        setShow(true);
+            await Promise.all(notShowInPath.map((path) => {
+                if(location.pathname.includes(path))
+                {
+                    settoshow = false;
+                }
+            }));
+
+            setShow(settoshow);
+        }
+        
+        checkPathNotShow();
     }, [location])
 
     return (
@@ -107,8 +118,9 @@ const Header = (props) => {
                                     aria-haspopup="true"
                                     onClick={handleOpenNavMenu}
                                     color="inherit"
+                                    key={`MenuIconButton`}
                                 >
-                                    <MenuIcon />
+                                    <MenuIcon key={`MenuIcon`} />
                                 </IconButton>
                                 <Menu
                                     id="menu-appbar"
@@ -130,8 +142,8 @@ const Header = (props) => {
                                 >
                                     {/* MOBILE */}
                                     {pages.map((page, idx) => (
-                                        <Link to={page.to} className="navbarlink-mobile">
-                                            <MenuItem key={idx} onClick={handleCloseNavMenu}>
+                                        <Link to={page.to} className="navbarlink-mobile" key={`link-${idx}`}>
+                                            <MenuItem key={`menu-item-page-${idx}`} onClick={handleCloseNavMenu}>
                                                 <Typography textAlign="center">
                                                         {page.label}
                                                 </Typography>
@@ -161,7 +173,7 @@ const Header = (props) => {
         
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
                                 {pages.map((page, idx) => (
-                                    <Link to={page.to}>
+                                    <Link to={page.to} key={`link-to-page-${idx}`}>
                                         <Button
                                             key={idx}
                                             onClick={handleCloseNavMenu}

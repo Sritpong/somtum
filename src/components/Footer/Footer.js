@@ -21,13 +21,24 @@ const Footer = () => {
     const [show, setShow] = useState(true);
     
     useEffect(() => {
-        if(location.pathname == '/register')
-        {
-            setShow(false);
-            return;
+        const checkPathNotShow = async () => {
+            const notShowInPath = [
+                '/register',
+                '/settingpassword'
+            ];
+            let settoshow = true;
+
+            await Promise.all(notShowInPath.map((path) => {
+                if(location.pathname.includes(path))
+                {
+                    settoshow = false;
+                }
+            }));
+
+            setShow(settoshow);
         }
         
-        setShow(true);
+        checkPathNotShow();
     }, [location])
 
     return (

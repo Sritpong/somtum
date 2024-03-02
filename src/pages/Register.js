@@ -1,3 +1,7 @@
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 // MUI
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -16,6 +20,9 @@ import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 
 // CSS
 import './../assets/css/Register.css';
+
+// Service
+import { axiosService } from '../services/axios';
 
 const provinces = [
     {
@@ -714,6 +721,74 @@ const provinces = [
 ]
 
 const Register = () => {
+    const navigate = useNavigate();
+    const fullnameRef = useRef(null);
+    const emailRef = useRef(null);
+    const phoneRef = useRef(null);
+    const birthdateRef = useRef(null);
+    const provinceRef = useRef(null);
+
+    const validateEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    const signup = () => {
+        try {
+            const fullname = fullnameRef.current.value;
+            const email = emailRef.current.value;
+            const phone = phoneRef.current.value;
+            const birthdate = birthdateRef.current.value;
+            const province = provinceRef.current.value;
+
+            if(fullname === undefined || fullname === '' || email === undefined || email === '' || phone === undefined || phone === '' || birthdate === undefined || birthdate === '' || province === undefined || province === '')
+            {
+                return Swal.fire({
+                    icon: "error",
+                    text: "กรุณากรอกข้อมูลให้ครบทุกช่อง"
+                });
+            }
+
+            if(!validateEmail(email))
+            {
+                return Swal.fire({
+                    icon: "error",
+                    text: "รูปแบบอีเมลล์ไม่ถูกต้อง กรุณากรอกใหม่อีกครั้ง"
+                });
+            }
+
+            const service = new axiosService();
+            service.post(`/user/register`, {
+                url: process.env.REACT_APP_BASE_URL,
+                fullname,
+                email,
+                phone,
+                birthdate,
+                province
+            }, {}).then((response) => {
+                if(response.data.status !== undefined && response.data.status === 200)
+                {
+                    // SUCCESS
+                    Swal.fire({
+                        icon: "success",
+                        text: response.data.message
+                    }).then(() => {
+                        navigate('/');
+                    });
+                }
+                else
+                {
+                    Swal.fire({
+                        icon: "error",
+                        text: response.data.message
+                    });
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <div className="container">
             <div className="register-content">
@@ -765,6 +840,7 @@ const Register = () => {
                                                     },
                                                 }}
                                                 fullWidth
+                                                inputRef={fullnameRef}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12} px={4}>
@@ -773,6 +849,7 @@ const Register = () => {
                                             </Typography>
                                             <TextField
                                                 id="standard-required"
+                                                type="email"
                                                 sx={{
                                                     backgroundColor: 'white',
                                                     color: 'black',
@@ -784,6 +861,7 @@ const Register = () => {
                                                     },
                                                 }}
                                                 fullWidth
+                                                inputRef={emailRef}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12} px={4}>
@@ -803,6 +881,7 @@ const Register = () => {
                                                     },
                                                 }}
                                                 fullWidth
+                                                inputRef={phoneRef}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12} px={4}>
@@ -842,6 +921,7 @@ const Register = () => {
                                                     }
                                                     inputFormat="dd.MM.yyyy"
                                                     format="D/MM/YYYY"
+                                                    inputRef={birthdateRef}
                                                 />
                                             </LocalizationProvider>
                                         </Grid>
@@ -850,10 +930,8 @@ const Register = () => {
                                                 จังหวัด
                                             </Typography>
                                             <Select
-                                                onChange={(e) => {
-                                                    console.log(e.target.value)
-                                                }}
                                                 fullWidth
+                                                inputRef={provinceRef}
                                             >
                                                 {
                                                     provinces.sort((a, b) => a.name_th.localeCompare(b.name_th, 'th')).map((province, index) => {
@@ -876,6 +954,7 @@ const Register = () => {
                                                             filter: 'brightness(0) invert(1)'
                                                         }
                                                     } />}
+                                                    onClick={signup}
                                                 >
                                                     สมัครสมาชิก
                                                 </Button>

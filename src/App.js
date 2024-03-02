@@ -9,6 +9,7 @@ import News from "./pages/News";
 import Menus from "./pages/Menus";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
+import SetPassword from "./pages/SetPassword";
 
 // IMPORT COMPONENTS
 import Header from "./components/Header/Header";
@@ -83,6 +84,9 @@ const App = () => {
                         } />
                         <Route path="/register" exact element={
                             <Register />
+                        } />
+                        <Route path="/settingpassword/:uuid" exact element={
+                            <SetPassword />
                         } />
                     </Routes>
                 </div>
